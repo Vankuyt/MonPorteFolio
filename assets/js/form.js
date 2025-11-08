@@ -21,7 +21,7 @@ if (form) {
       return;
     }
 
-    feedback.textContent = "Merci ! Votre message a été préparé (démo).";
+    feedback.textContent = "Merci ! Votre message a été préparé avec succès.";
     feedback.className = 'form-feedback success';
     form.reset();
   });
