@@ -1,0 +1,376 @@
+/*
+  ============================================
+  STYLES PAGE PROJETS
+  ============================================
+  
+  Styles spécifiques à la page projets.html
+  Utilise les variables du thème définies dans theme.css
+*/
+
+/* ===================== HERO PROJETS ===================== */
+.projects-hero {
+  padding-top: calc(var(--space-12) + 60px); /* Compense le header sticky */
+}
+
+.projects-hero-grid {
+  display: grid;
+  gap: var(--space-8);
+  align-items: center;
+  grid-template-columns: 1fr;
+}
+
+.projects-hero-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.projects-hero-media {
+  justify-self: center;
+  max-width: 520px;
+  width: 100%;
+}
+
+.projects-hero-media img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: var(--space-6);
+  transition: opacity 0.2s;
+}
+
+.back-link:hover,
+.back-link:focus {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.projects-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: var(--space-4);
+  color: var(--color-text);
+}
+
+.projects-hero .lead {
+  font-size: 1.125rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+/* ===================== FILTRES ===================== */
+.projects-filters {
+  padding: var(--space-6) 0;
+}
+
+.filters-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  justify-content: center;
+}
+
+.filters-label {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.filters-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.filter-btn {
+  padding: var(--space-2) var(--space-4);
+  border: 2px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover,
+.filter-btn:focus {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+}
+
+.filter-btn.active {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+}
+
+.filter-clear {
+  padding: var(--space-2) var(--space-4);
+  border: 2px solid var(--color-muted);
+  background: transparent;
+  color: var(--color-muted);
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-clear:hover,
+.filter-clear:focus {
+  border-color: var(--color-text);
+  color: var(--color-text);
+}
+
+/* ===================== GRILLE PROJETS DÉTAILLÉE ===================== */
+.projects-section {
+  padding: var(--space-12) 0;
+}
+
+.projects-grid-detailed {
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: 1fr;
+}
+
+.project-card-detailed {
+  background: var(--color-card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--color-card-shadow);
+  padding: var(--space-10);
+  display: grid;
+  gap: var(--space-8);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #1d232a; /* Texte sombre sur fond blanc */
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card-detailed::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 137, 6, 0.08), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.project-card-detailed::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 137, 6, 0.1), transparent);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.project-card-detailed:hover::before {
+  opacity: 1;
+}
+
+.project-card-detailed:hover::after {
+  left: 100%;
+}
+
+.project-card-detailed:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(255, 137, 6, 0.25);
+}
+
+/* Image du projet (optionnelle) */
+.project-image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  background: var(--color-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  margin-bottom: var(--space-6);
+}
+
+/* Wrapper pour l'image avec padding supplémentaire */
+.project-image-wrapper {
+  margin-bottom: var(--space-6);
+  position: relative;
+  z-index: 1;
+}
+
+.project-image-wrapper .project-image {
+  margin-bottom: 0;
+}
+
+/* En-tête de la carte */
+.project-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+  position: relative;
+  z-index: 1;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1d232a; /* Texte sombre sur fond blanc */
+  margin: 0;
+}
+
+.project-description {
+  color: #334155; /* Texte gris foncé sur fond blanc */
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Technologies utilisées */
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.project-tech .tag {
+  font-size: 0.875rem;
+  background: #eef3f6; /* Fond clair pour tags sur carte blanche */
+  color: #334155; /* Texte sombre pour tags sur carte blanche */
+  padding: var(--space-2) var(--space-4);
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/* Informations supplémentaires */
+.project-details {
+  display: grid;
+  gap: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid #e5e7eb; /* Bordure claire sur fond blanc */
+  position: relative;
+  z-index: 1;
+}
+
+.project-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.project-detail-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6b7280; /* Texte gris moyen sur fond blanc */
+}
+
+.project-detail-value {
+  font-size: 1rem;
+  color: #1d232a; /* Texte sombre sur fond blanc */
+  font-weight: 500;
+}
+
+/* Actions (liens) */
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid #e5e7eb; /* Bordure claire sur fond blanc */
+  position: relative;
+  z-index: 1;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.project-link-primary {
+  background: var(--color-btn-primary-bg);
+  color: var(--color-btn-primary-text);
+}
+
+.project-link-primary:hover,
+.project-link-primary:focus {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.project-link-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.project-link-secondary:hover,
+.project-link-secondary:focus {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+}
+
+/* Message "aucun projet" */
+.no-projects {
+  text-align: center;
+  padding: var(--space-12);
+  color: var(--color-muted);
+  font-size: 1.125rem;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (min-width: 768px) {
+  .projects-hero-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+
+  .projects-hero-content {
+    text-align: left;
+    margin: 0;
+  }
+
+  .projects-grid-detailed {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filters-wrapper {
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects-grid-detailed {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-12);
+  }
+
+  .project-card-detailed {
+    padding: var(--space-12);
+  }
+}
+

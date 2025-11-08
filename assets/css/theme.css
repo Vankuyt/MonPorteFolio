@@ -1,0 +1,122 @@
+/*
+  ============================================
+  FICHIER DE THÈME - COULEURS
+  ============================================
+  
+  Modifie UNIQUEMENT ce fichier pour changer toutes les couleurs du site.
+  Toutes les couleurs sont centralisées ici via des variables CSS.
+  
+  Organisation:
+  - Couleurs principales (fond, texte, accent)
+  - Couleurs de sections (header, footer, sections alternées)
+  - Couleurs d'interface (boutons, formulaires, tags)
+  - Couleurs d'état (hover, focus, feedback)
+*/
+
+:root {
+  /* ===================== COULEURS PRINCIPALES ===================== */
+  /* Couleur d'accent principale (utilisée pour les boutons, liens, highlights) */
+  --color-primary: #ff8906;         /* Orange vif de l'image */
+  
+  /* Couleurs de fond */
+  --color-bg: #0f0e17;              /* Fond principal (charbon très foncé de l'image) */
+  --color-alt: #1a1a24;             /* Fond alterné (gris foncé légèrement plus clair pour sections) */
+  --color-dark: #0f0e17;            /* Fond sombre (header, footer, contact - identique au fond principal) */
+  
+  /* Couleurs de texte */
+  --color-text: #f1f1f1;            /* Texte principal très clair (theme glass) */
+  --color-text-glow: #ff8906;       /* Accent néon orange utilisé pour text-shadow */
+  --color-muted: #a7a9be;           /* Texte secondaire/paragraphes (gris clair de l'image) */
+  --color-text-light: #fffffe;       /* Texte clair sur fond sombre (blanc) */
+  --color-text-on-dark: #a7a9be;    /* Texte sur header/footer (gris clair) */
+  
+  /* ===================== COULEURS DE SECTIONS ===================== */
+  /* Header & Footer */
+  --color-header-bg: var(--color-dark);
+  --color-header-text: var(--color-text);      /* Blanc pur */
+  --color-header-text-muted: var(--color-muted); /* Gris clair */
+  --color-header-text-hover: var(--color-text); /* Blanc pur au hover */
+  
+  --color-footer-bg: var(--color-dark);
+  --color-footer-text: var(--color-muted);      /* Gris clair */
+  
+  /* Section contact (fond sombre) */
+  --color-contact-bg: var(--color-dark);
+  --color-contact-text: var(--color-text);     /* Blanc pur */
+  
+  /* ===================== COULEURS D'INTERFACE ===================== */
+  /* Boutons */
+  --color-btn-bg: #2a2a3a;          /* Fond bouton neutre (gris foncé) */
+  --color-btn-text: var(--color-text); /* Texte bouton neutre (blanc) */
+  --color-btn-primary-bg: var(--color-primary); /* Orange vif */
+  --color-btn-primary-text: var(--color-text);  /* Blanc pur */
+  --color-btn-primary-shadow: rgba(255, 137, 6, 0.35); /* Ombre orange */
+  
+  /* Cartes projets */
+  --color-card-bg: var(--color-white); /* Blanc pur pour cartes */
+  --color-card-shadow: rgba(0, 0, 0, 0.3); /* Ombre plus foncée pour blanc sur sombre */
+  
+  /* Tags */
+  --color-tag-bg: #2a2a3a;          /* Fond tag (gris foncé) */
+  --color-tag-text: var(--color-text); /* Texte tag (blanc) */
+  
+  /* Barres de compétences */
+  --color-meter-bg: #2a2a3a;        /* Fond de la barre (gris foncé) */
+  --color-meter-fill: var(--color-primary);  /* Remplissage de la barre (orange) */
+  
+  /* Avatar (portrait) */
+  --color-avatar-border: var(--color-primary); /* Bordure orange */
+  
+  /* ===================== COULEURS DE FORMULAIRE ===================== */
+  --color-input-bg: #1a1a24;         /* Fond des champs (gris foncé légèrement plus clair) */
+  --color-input-text: var(--color-text); /* Texte des champs (blanc) */
+  --color-input-border: #3a3a4a;     /* Bordure des champs (gris foncé subtil) */
+  --color-input-focus: var(--color-primary); /* Bordure focus (orange) */
+  
+  /* Messages de feedback */
+  --color-feedback-success: #86efac;  /* Vert pour succès */
+  --color-feedback-error: #fca5a5;    /* Rouge pour erreur */
+  
+  /* ===================== COULEURS D'ÉTAT ===================== */
+  /* Hover & Focus */
+  --color-hover-brightness: brightness(0.9); /* Légèrement plus sombre au hover */
+  --color-focus-outline: var(--color-primary); /* Outline orange au focus */
+  
+  /* ===================== COULEURS UTILITAIRES ===================== */
+  /* Ombres */
+  --shadow-sm: 0 10px 30px rgba(0, 0, 0, 0.3); /* Ombre plus foncée pour blanc sur sombre */
+  --shadow-md: 0 6px 20px rgba(255, 137, 6, 0.35); /* Ombre orange pour bouton primaire */
+  
+  /* Autres */
+  --color-white: #fffffe;             /* Blanc pur de l'image */
+  --color-black: #000000;
+  
+  /* ===================== COULEURS D'ILLUSTRATION (optionnel) ===================== */
+  /* Ces couleurs peuvent être utilisées pour des illustrations ou éléments décoratifs */
+  --color-illustration-main: var(--color-white);      /* Blanc pour illustrations */
+  --color-illustration-highlight: var(--color-primary); /* Orange pour highlights */
+  --color-illustration-secondary: #f25f4c;              /* Corail de l'image */
+  --color-illustration-tertiary: #e53170;              /* Rose/magenta de l'image */
+}
+
+/* Style textuel principal pour l'ensemble du design glass */
+.glass-effect, .glass-effect p, .glass-effect h1, .glass-effect h2, .glass-effect h3, .glass-effect h4, .glass-effect h5, .glass-effect h6, .glass-effect .project-title, .glass-effect .project-description, .glass-effect .lead {
+  color: var(--color-text) !important;
+  text-shadow: 0 0 10px var(--color-text-glow), 0 3px 18px rgba(22,22,44,0.32);
+}
+
+.glass-effect .project-detail-label, .glass-effect .project-detail-value {
+  color: #fff !important;
+  text-shadow: 0 1px 8px rgba(32,32,48,0.18);
+}
+
+.glass-effect .tag {
+  color: var(--color-text-glow) !important;
+  text-shadow: 0 0 6px #fff, 0 1px 10px var(--color-text-glow);
+}
+
+.glass-effect h1, .glass-effect h2, .glass-effect h3 {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+

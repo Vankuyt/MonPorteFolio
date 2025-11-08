@@ -1,0 +1,101 @@
+Étape 0 — Préparer le projet
+Arborescence proposée:
+MonPortoFolio/  index.html  assets/    css/      reset.css      styles.css    js/      main.js      form.js    img/      hero-illustration.svg      portrait.jpg      projects/  favicon.ico
+Techniques:
+reset.css (ou normalize.css)
+Variables CSS: couleurs, typo, espaces
+Grille responsive: mobile-first avec grid/flex
+Conteneur .container (max-width ~1200px, padding latéral 16–24px)
+Étape 1 — Base HTML et styles globaux
+But: squelette index.html avec sections et ancres.
+Sections: header, main, section#hero, section#about, section#projects, section#skills, section#contact, footer.
+Typo & couleurs:
+Primaire: turquoise/menthe (#28e0c2 env.)
+Sombre: #0f1214
+Gris clair de fond de section: #f4f6f8
+Texte: #1d232a
+Critères:
+Les sections existent et sont accessibles via leurs IDs.
+Variables CSS: --color-primary, --color-bg, --radius, --shadow, --space-*.
+Étape 2 — Header (barre de navigation fixe)
+Contenu: logo texte “NOM + PRÉNOM”, menu: Accueil, À propos, Projets, Compétences, Contact.
+Comportement:
+Sticky en haut, fond sombre.
+Lien actif souligné/teinté.
+Menu burger en mobile (JS minimal pour ouvrir/fermer).
+Accessibilité:
+<nav aria-label="Navigation principale">, bouton burger avec aria-expanded.
+Étape 3 — Hero (accroche + CTA)
+Contenu: titre “Je suis [Prénom], Développeur…”, sous-texte éventuel, bouton “Voir mes projets”, illustration à droite (desktop).
+Layout:
+Mobile: colonne (texte puis image).
+Desktop: 2 colonnes 50/50.
+Effets:
+Bouton primaire: hover + focus visible.
+Scroll vers #projects au clic (JS: scrollIntoView).
+Étape 4 — Section À propos
+Contenu: petit paragraphe, mots clés en accent (ex: “développement web”), bouton “Télécharger mon CV”, portrait à droite (desktop).
+Style:
+Fond gris clair, bloc carte avec légère ombre.
+Photo ronde avec bordure primaire.
+Accessibilité:
+Lien de téléchargement avec download, texte alternatif sur l’image.
+Étape 5 — Section Projets (cartes)
+Structure:
+Grille de 3 cartes (mobile: 1, tablette: 2, desktop: 3).
+Chaque carte: titre court, description 2–3 lignes, tags (#html #css #js), bouton “Voir”.
+Interactions:
+Hover: légère translation/ombre, bouton qui se teinte.
+Extensibilité:
+Génère les cartes en JS depuis un tableau d’objets:
+{ title, description, tags: ['html','css','js'], url, image }.
+Étape 6 — Section Compétences (soft vs hard)
+Soft skills: 3–4 barres horizontales.
+Hard skills: 4–5 barres horizontales (HTML, CSS, JS, VS Code…).
+Technique:
+Barres en CSS avec --value (%). Option: animation de progression au scroll (IntersectionObserver).
+Accessibilité:
+Indiquer la valeur en texte (aria-label ou texte adjacent).
+Étape 7 — Section Contact (fond sombre)
+Formulaire:
+Champs: votre prénom, votre nom, votre sujet, votre message.
+Bouton “Envoyer”.
+Validation JS:
+Vérifier champs requis, longueur min, email si tu ajoutes un champ email.
+Messages d’erreur accessibles, focus sur le premier champ invalide.
+Option:
+Envoi via EmailJS ou un webhook (si pas de backend).
+Accessibilité:
+Labels reliés (for/id), aria-live="polite" pour messages.
+Étape 8 — Footer
+Contenu: “Designed by [votre prénom] with HTML, CSS, JS”, “Tous droits réservés - 2025”.
+Liens utiles: GitHub/LinkedIn (icônes SVG, aria-label).
+Contraste: vérifier lisibilité sur fond sombre.
+Étape 9 — Responsive et micro-détails
+Breakpoints:
+<= 480px (mobile), >= 768px (tablette), >= 1024px (desktop).
+Ajustements:
+Tailles de typo fluides (clamp()).
+Espacements entre sections cohérents (--space-8, --space-12).
+Réduction des ombres sur mobile.
+Étape 10 — Accessibilité, SEO, performance
+A11y:
+Ordre de tabulation, focus visibles, skip-link en haut.
+SEO:
+Balises <title>, <meta name="description">, OpenGraph de base.
+Titres hiérarchisés: un seul <h1> (dans le hero).
+Perf:
+Images optimisées, loading="lazy", tailles explicites.
+Minifier CSS/JS (simple: cssnano/terser ou versions minifiées).
+Étape 11 — Optionnel: animations subtiles
+Idées:
+Fade-in des sections au scroll (IntersectionObserver + classes).
+Légère animation du bouton primaire.
+Parallax très léger sur l’illustration du hero (CSS only préféré).
+Étape 12 — Mise en ligne
+Hébergement: GitHub Pages, Netlify ou Vercel.
+Vérifs finales:
+Lighthouse (Accessibilité > 90, SEO > 90).
+Test mobile réel (touch, clavier).---
+alwaysApply: true
+---

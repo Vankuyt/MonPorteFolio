@@ -1,0 +1,544 @@
+/*
+  ============================================
+  EFFETS SPÉCIAUX MODERNES - ANDROID UI INSPIRED
+  ============================================
+  
+  Effets visuels modernes inspirés des interfaces Android UI :
+  - Orbes lumineuses animées
+  - Dégradés de couleurs vives
+  - Formes géométriques polygonales
+  - Glassmorphism
+  - Animations subtiles
+  - Effets de profondeur
+*/
+
+/* ===================== VARIABLES POUR LES EFFETS ===================== */
+:root {
+  /* Couleurs pour les effets lumineux */
+  --effect-gradient-1: #ff006e;      /* Rose vif */
+  --effect-gradient-2: #8338ec;      /* Violet */
+  --effect-gradient-3: #3a86ff;      /* Bleu vif */
+  --effect-gradient-4: #06ffa5;      /* Cyan/vert */
+  --effect-gradient-5: #ffbe0b;      /* Jaune doré */
+  
+  /* Opacités pour les effets */
+  --effect-opacity-orb: 0.15;
+  --effect-opacity-shape: 0.1;
+  --effect-blur: 80px;
+}
+
+/* ===================== CONTENEUR DES EFFETS ===================== */
+.effects-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+  isolation: isolate;
+}
+
+/* ===================== ORBES LUMINEUSES ANIMÉES ===================== */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(var(--effect-blur));
+  opacity: var(--effect-opacity-orb);
+  animation: float 20s ease-in-out infinite;
+  will-change: transform;
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--effect-gradient-1), transparent);
+  top: 10%;
+  left: 10%;
+  animation-duration: 25s;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, var(--effect-gradient-2), transparent);
+  top: 60%;
+  right: 15%;
+  animation-duration: 30s;
+  animation-delay: -5s;
+}
+
+.orb-3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, var(--effect-gradient-3), transparent);
+  bottom: 20%;
+  left: 20%;
+  animation-duration: 35s;
+  animation-delay: -10s;
+}
+
+.orb-4 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, var(--effect-gradient-4), transparent);
+  top: 30%;
+  right: 30%;
+  animation-duration: 28s;
+  animation-delay: -15s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(50px, -50px) scale(1.1);
+  }
+  50% {
+    transform: translate(-30px, 30px) scale(0.9);
+  }
+  75% {
+    transform: translate(30px, 50px) scale(1.05);
+  }
+}
+
+/* ===================== FORMES GÉOMÉTRIQUES POLYGONALES ===================== */
+.geometric-shape {
+  position: absolute;
+  opacity: var(--effect-opacity-shape);
+  animation: rotate 30s linear infinite;
+  will-change: transform;
+}
+
+.shape-1 {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, var(--effect-gradient-1), var(--effect-gradient-2));
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  top: 15%;
+  right: 10%;
+  animation-duration: 40s;
+}
+
+.shape-2 {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(45deg, var(--effect-gradient-3), var(--effect-gradient-4));
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  bottom: 25%;
+  right: 25%;
+  animation-duration: 35s;
+  animation-direction: reverse;
+}
+
+.shape-3 {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(225deg, var(--effect-gradient-5), var(--effect-gradient-1));
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  top: 50%;
+  left: 5%;
+  animation-duration: 45s;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  to {
+    transform: rotate(360deg) translate(20px, 20px);
+  }
+}
+
+/* ===================== GLASSMORPHISM POUR LES CARTES ===================== */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Application du glassmorphism sur les cartes */
+.card {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 137, 6, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(255, 137, 6, 0.2);
+}
+
+/* ===================== EFFETS DE LUMIÈRE SUR LES BOUTONS ===================== */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-primary), #ff6b35);
+  transition: all 0.3s ease;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 30px rgba(255, 137, 6, 0.6);
+  transform: translateY(-2px);
+}
+
+/* ===================== ANIMATION D'ENTRÉE DES SECTIONS ===================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* ===================== EFFET DE GRADIENT ANIMÉ SUR LE HEADER ===================== */
+.site-header {
+  background: linear-gradient(135deg, 
+    rgba(15, 14, 23, 0.95) 0%,
+    rgba(26, 26, 36, 0.95) 50%,
+    rgba(15, 14, 23, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 137, 6, 0.1);
+}
+
+/* ===================== PARTICULES FLOTTANTES ===================== */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--effect-gradient-3);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: particleFloat 15s ease-in-out infinite;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.particle:nth-child(1) {
+  left: 20%;
+  animation-delay: 0s;
+  background: var(--effect-gradient-1);
+}
+
+.particle:nth-child(2) {
+  left: 40%;
+  animation-delay: -3s;
+  background: var(--effect-gradient-2);
+}
+
+.particle:nth-child(3) {
+  left: 60%;
+  animation-delay: -6s;
+  background: var(--effect-gradient-3);
+}
+
+.particle:nth-child(4) {
+  left: 80%;
+  animation-delay: -9s;
+  background: var(--effect-gradient-4);
+}
+
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-100vh) translateX(50px);
+    opacity: 0;
+  }
+}
+
+/* ===================== EFFET DE LUEUR SUR LES TITRES ===================== */
+.hero-copy h1,
+.about-title,
+.projects-title,
+.skills-title,
+.contact-title {
+  position: relative;
+  text-shadow: 0 0 20px rgba(255, 137, 6, 0.3);
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(255, 137, 6, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(255, 137, 6, 0.5);
+  }
+}
+
+/* ===================== EFFET DE GRADIENT ANIMÉ SUR LE FOND ===================== */
+body {
+  position: relative;
+  background: var(--color-bg);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(255, 0, 110, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(131, 56, 236, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(58, 134, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+  animation: gradientShift 20s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+/* ===================== RESPONSIVE - RÉDUCTION DES EFFETS SUR MOBILE ===================== */
+@media (max-width: 768px) {
+  .orb {
+    width: 200px !important;
+    height: 200px !important;
+    filter: blur(40px);
+  }
+  
+  .geometric-shape {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  
+  .particle {
+    display: none; /* Masquer les particules sur mobile pour améliorer les performances */
+  }
+  
+  /* Réduire les animations sur mobile */
+  @media (prefers-reduced-motion: reduce) {
+    .orb,
+    .geometric-shape,
+    .particle {
+      animation: none;
+    }
+    
+    .section {
+      animation: none;
+    }
+  }
+}
+
+/* ===================== ACCESSIBILITÉ - RESPECTER LES PRÉFÉRENCES UTILISATEUR ===================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===================== MODE PERFORMANCE - DÉSACTIVER LES EFFETS SI NÉCESSAIRE ===================== */
+.no-effects .effects-container {
+  display: none;
+}
+
+.no-effects body::before {
+  display: none;
+}
+
+/* PREVIEW STYLE 4 — TEXTE LISIBLE ACCENT NEON ORANGE */
+.glass-effect, .glass-effect p, .glass-effect h1, .glass-effect h2, .glass-effect h3, .glass-effect h4, .glass-effect h5, .glass-effect h6, .glass-effect .project-title, .glass-effect .project-description, .glass-effect .lead {
+  color: #f1f1f1 !important;
+  text-shadow: 0 0 10px #ff8906, 0 3px 18px rgba(22,22,44,0.32);
+}
+
+.glass-effect .project-detail-label, .glass-effect .project-detail-value {
+  color: #fff !important;
+  text-shadow: 0 1px 8px rgba(32,32,48,0.18);
+}
+
+.glass-effect .tag {
+  color: #ff8906 !important;
+  text-shadow: 0 0 6px #fff, 0 1px 10px #ff8906;
+}
+
+/* Optionnel pour accentuer le titre principal */
+.glass-effect h1, .glass-effect h2, .glass-effect h3 {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* === BLOB GLASS QUI SUIT LE CURSEUR === */
+.cursor-blob {
+  position: fixed;
+  top: 0; left: 0;
+  width: 90px; height: 90px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255,137,6,0.14) 0%, rgba(131,56,236,0.12) 70%, transparent 100%);
+  border-radius: 50%;
+  filter: blur(12px) brightness(1.1);
+  opacity: 0.85;
+  z-index: 99;
+  transform: translate(-50%, -50%) scale(1);
+  transition: background 0.2s, opacity 0.2s;
+  mix-blend-mode: lighten;
+  will-change: transform, opacity;
+}
+@media (max-width: 768px), (pointer: coarse), (hover: none), (prefers-reduced-motion: reduce) {
+  .cursor-blob {
+    display: none;
+  }
+}
+
+/* ACCESSIBILITÉ : FOCUS VISIBLE GLOBALEMENT */
+a, button, input, textarea, select {
+  outline: none;
+}
+:focus-visible {
+  outline: 2.5px solid var(--color-primary);
+  outline-offset: 2.5px;
+  box-shadow: 0 0 10px var(--color-primary), 0 0 0 2px rgba(255,255,255,0.12);
+  transition: outline 0.12s, box-shadow 0.12s;
+  z-index: 101 !important;
+}
+
+/* BOUTON FLOTANT SCROLL-TO-TOP GLASS */
+.btn-scroll-top {
+  position: fixed;
+  right: 2.2rem; bottom: 2.2rem;
+  width: 46px; height: 46px;
+  display: flex;
+  align-items: center; justify-content: center;
+  background: rgba(12,12,28,0.32);
+  border: 1.2px solid rgba(255,255,255,0.16);
+  border-radius: 50%;
+  box-shadow: 0 4px 24px 0 rgba(31,38,135,0.22);
+  backdrop-filter: blur(8px) saturate(1.25);
+  -webkit-backdrop-filter: blur(8px) saturate(1.25);
+  cursor: pointer;
+  z-index: 120;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.23s cubic-bezier(.4,0,.2,1), transform 0.18s, background 0.16s;
+}
+.btn-scroll-top svg {
+  display: block;
+  width: 28px; height: 28px;
+}
+.btn-scroll-top.active {
+  opacity: 0.98;
+  pointer-events: auto;
+  transform: scale(1.06);
+}
+.btn-scroll-top:focus-visible,
+.btn-scroll-top:hover {
+  background: rgba(255, 137, 6, 0.16);
+  outline: 2.5px solid #ff8906;
+  outline-offset: 2px;
+  transform: scale(1.11);
+}
+@media (max-width:600px) {
+  .btn-scroll-top { right: 1.2rem; bottom: 1.2rem; width: 39px; height: 39px; }
+  .btn-scroll-top svg { width: 22px; height: 22px; }
+}
+
+/* RÉVÉLATION ANIMÉE EN APPARITION SECTION */
+.js-reveal { opacity:0; transform:translateY(36px); transition:opacity 0.85s cubic-bezier(.44,0,.27,1), transform 0.85s cubic-bezier(.44,0,.27,1); }
+.js-reveal.revealed { opacity:1; transform:translateY(0); }
+
+/* MICRO-INTERACTION, HOVER/ACTIVE BOUTONS/LINKS/INPUTS */
+.btn,
+.button,
+input[type="submit"],
+.btn-primary {
+  transition: background 0.18s cubic-bezier(.44,0,.22,.99), border 0.14s, box-shadow 0.22s, transform 0.13s;
+  will-change: box-shadow, transform;
+}
+.btn:hover, .button:hover, .btn-primary:hover {
+  filter: brightness(1.09) drop-shadow(0 0 14px #ff8906dd);
+  box-shadow: 0 0 0 2.5px var(--color-primary), 0 4px 24px rgba(255,137,6,0.10);
+}
+.btn:active, .button:active, .btn-primary:active {
+  transform: scale(0.965);
+  filter: brightness(1.00);
+}
+input:focus, textarea:focus {
+  box-shadow: 0 0 0 2px var(--color-primary), 0 0 10px #ff890666;
+  border-color: var(--color-primary);
+}
+a:hover {
+  color: var(--color-primary); text-decoration: underline wavy 1.5px;
+  transition: color 0.11s;
+}
+
+/* Ripple effet sur btn-primary au clic */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary .ripple {
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+  transform: scale(0);
+  background: linear-gradient(90deg,#ff890680 0%,#fff0 100%);
+  animation: ripple-anim 0.47s cubic-bezier(.5,0,.2,1);
+  opacity: 0.7;
+}
+@keyframes ripple-anim {
+  0% { transform: scale(0); opacity:0.85; }
+  80% { transform: scale(2.8); opacity:0.55; }
+  100% { transform: scale(3.6); opacity:0; }
+}
+
