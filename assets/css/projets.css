@@ -198,7 +198,7 @@
 .project-image {
   width: 100%;
   /*j'enleve heigth: 350px et je remplace par 200px*/
-  height: 250%;
+  height: 150%;
   object-fit: cover;
   border-radius: var(--radius);
   background: var(--color-alt);
