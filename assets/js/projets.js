@@ -242,6 +242,7 @@ function renderProjects() {
 // Initialisation au chargement de la page
 document.addEventListener('DOMContentLoaded', () => {
   renderFilters();
+  updateFiltersUI();/*Si ca cuit je retire la ligne 245*/
   renderProjects();
 });
 
